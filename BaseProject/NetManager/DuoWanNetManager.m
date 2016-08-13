@@ -20,8 +20,8 @@
 forKey:[@"desc" stringByAppendingString:key]];\
 [dic removeObjectForKey:[enName stringByAppendingString:key]]
 
-//把path写到文件头部，使用宏定义形势。 方便后期维护
-//把所有路径宏定义封装到DuoWanRequestPath.h文件中,太多东西放在文件头部,好乱的说😊
+//把path写到文件头部，使用宏定义形式。 方便后期 维护
+//把所有路径宏定义封装到DuoWanRequestPath.h文件中,太多东西放在文件头部,好乱的说
 #import "DuoWanRequestPath.h"
 
 @implementation DuoWanNetManager

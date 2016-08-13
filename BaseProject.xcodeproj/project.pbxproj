@@ -128,6 +128,9 @@
 		38F219731BF3240400F11009 /* BestGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F219721BF3240400F11009 /* BestGroupCell.m */; };
 		38F219761BF32EC800F11009 /* BestGroupDetailIntroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F219751BF32EC800F11009 /* BestGroupDetailIntroCell.m */; };
 		38F219791BF32F0600F11009 /* BestGroupDetailHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F219781BF32F0600F11009 /* BestGroupDetailHeroCell.m */; };
+		BC1D8FC71D5DB16400A0F689 /* FreeHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FC61D5DB16400A0F689 /* FreeHeroCell.m */; };
+		BC1D8FD01D5DC3B000A0F689 /* HeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */; };
+		BC1D8FD31D5DCF8A00A0F689 /* FreeHeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -353,6 +356,12 @@
 		38F219781BF32F0600F11009 /* BestGroupDetailHeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestGroupDetailHeroCell.m; sourceTree = "<group>"; };
 		4329DABFE5AD654FE71597C9 /* Pods-BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.debug.xcconfig"; sourceTree = "<group>"; };
 		5EAAD623A23724C816F8DC02 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC1D8FC51D5DB16400A0F689 /* FreeHeroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeHeroCell.h; sourceTree = "<group>"; };
+		BC1D8FC61D5DB16400A0F689 /* FreeHeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeHeroCell.m; sourceTree = "<group>"; };
+		BC1D8FCE1D5DC3B000A0F689 /* HeroViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroViewModel.h; sourceTree = "<group>"; };
+		BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroViewModel.m; sourceTree = "<group>"; };
+		BC1D8FD11D5DCF8A00A0F689 /* FreeHeroViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeHeroViewModel.h; sourceTree = "<group>"; };
+		BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeHeroViewModel.m; sourceTree = "<group>"; };
 		DD4F0750B5DAAA87BA236B31 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -476,6 +485,10 @@
 				3836B1751BF42CE8005FE9E6 /* ZBItemViewModel.m */,
 				382306AF1BF46A4F0069E0FD /* SumAbilityViewModel.h */,
 				382306B01BF46A4F0069E0FD /* SumAbilityViewModel.m */,
+				BC1D8FD11D5DCF8A00A0F689 /* FreeHeroViewModel.h */,
+				BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */,
+				BC1D8FCE1D5DC3B000A0F689 /* HeroViewModel.h */,
+				BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */,
 			);
 			path = "多玩盒子";
 			sourceTree = "<group>";
@@ -765,24 +778,11 @@
 		3886C0B51BD74A4A0014E661 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC1D8FC41D5D792500A0F689 /* 喜马拉雅 */,
+				BC1D8FC31D5D791A00A0F689 /* 多玩 */,
+				BC1D8FC21D5D78F000A0F689 /* 兔玩 */,
 				38BEAC1D1BEC8E2200D567D7 /* TRImageView.h */,
 				38BEAC1E1BEC8E2200D567D7 /* TRImageView.m */,
-				382020101BEC36F20003DB02 /* TuWanListCell.h */,
-				382020111BEC36F20003DB02 /* TuWanListCell.m */,
-				382020131BEC415C0003DB02 /* TuWanImageCell.h */,
-				382020141BEC415C0003DB02 /* TuWanImageCell.m */,
-				382391631BF0496200F2F52F /* XiMaCategoryCell.h */,
-				382391641BF0496200F2F52F /* XiMaCategoryCell.m */,
-				38DC081C1BF194820077E792 /* MusicDetailCell.h */,
-				38DC081D1BF194820077E792 /* MusicDetailCell.m */,
-				38DC08281BF1DF4D0077E792 /* PlayView.h */,
-				38DC08291BF1DF4D0077E792 /* PlayView.m */,
-				38F219711BF3240400F11009 /* BestGroupCell.h */,
-				38F219721BF3240400F11009 /* BestGroupCell.m */,
-				38F219741BF32EC800F11009 /* BestGroupDetailIntroCell.h */,
-				38F219751BF32EC800F11009 /* BestGroupDetailIntroCell.m */,
-				38F219771BF32F0600F11009 /* BestGroupDetailHeroCell.h */,
-				38F219781BF32F0600F11009 /* BestGroupDetailHeroCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -878,6 +878,45 @@
 				38CBDDB21BEB4755008D5ADC /* XiMaLaYaModel.h */,
 			);
 			path = "喜马拉雅";
+			sourceTree = "<group>";
+		};
+		BC1D8FC21D5D78F000A0F689 /* 兔玩 */ = {
+			isa = PBXGroup;
+			children = (
+				382020101BEC36F20003DB02 /* TuWanListCell.h */,
+				382020111BEC36F20003DB02 /* TuWanListCell.m */,
+				382020131BEC415C0003DB02 /* TuWanImageCell.h */,
+				382020141BEC415C0003DB02 /* TuWanImageCell.m */,
+			);
+			name = "兔玩";
+			sourceTree = "<group>";
+		};
+		BC1D8FC31D5D791A00A0F689 /* 多玩 */ = {
+			isa = PBXGroup;
+			children = (
+				38F219711BF3240400F11009 /* BestGroupCell.h */,
+				38F219721BF3240400F11009 /* BestGroupCell.m */,
+				38F219741BF32EC800F11009 /* BestGroupDetailIntroCell.h */,
+				38F219751BF32EC800F11009 /* BestGroupDetailIntroCell.m */,
+				38F219771BF32F0600F11009 /* BestGroupDetailHeroCell.h */,
+				38F219781BF32F0600F11009 /* BestGroupDetailHeroCell.m */,
+				BC1D8FC51D5DB16400A0F689 /* FreeHeroCell.h */,
+				BC1D8FC61D5DB16400A0F689 /* FreeHeroCell.m */,
+			);
+			name = "多玩";
+			sourceTree = "<group>";
+		};
+		BC1D8FC41D5D792500A0F689 /* 喜马拉雅 */ = {
+			isa = PBXGroup;
+			children = (
+				382391631BF0496200F2F52F /* XiMaCategoryCell.h */,
+				382391641BF0496200F2F52F /* XiMaCategoryCell.m */,
+				38DC081C1BF194820077E792 /* MusicDetailCell.h */,
+				38DC081D1BF194820077E792 /* MusicDetailCell.m */,
+				38DC08281BF1DF4D0077E792 /* PlayView.h */,
+				38DC08291BF1DF4D0077E792 /* PlayView.m */,
+			);
+			name = "喜马拉雅";
 			sourceTree = "<group>";
 		};
 		DEB62B47C560AA65E07ECFA4 /* Pods */ = {
@@ -1087,9 +1126,11 @@
 				38CBDDC01BEB4755008D5ADC /* SumAbilityModel.m in Sources */,
 				38CBDDBF1BEB4755008D5ADC /* RuneModel.m in Sources */,
 				38CBDDB71BEB4755008D5ADC /* HeroChangeModel.m in Sources */,
+				BC1D8FD31D5DCF8A00A0F689 /* FreeHeroViewModel.m in Sources */,
 				3886C09B1BD748830014E661 /* AppDelegate.m in Sources */,
 				384417201BF0299C004D486F /* TuWanPicViewModel.m in Sources */,
 				3848D0951BF2E6B80074ADED /* ToolMenuViewModel.m in Sources */,
+				BC1D8FC71D5DB16400A0F689 /* FreeHeroCell.m in Sources */,
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
 				38CBDDC21BEB4755008D5ADC /* ZBCategoryModel.m in Sources */,
 				384417171BEF5EE8004D486F /* TuWanVideoModel.m in Sources */,
@@ -1108,6 +1149,7 @@
 				382020151BEC415C0003DB02 /* TuWanImageCell.m in Sources */,
 				3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */,
 				382306B41BF46C6A0069E0FD /* SumAbilityViewController.m in Sources */,
+				BC1D8FD01D5DC3B000A0F689 /* HeroViewModel.m in Sources */,
 				3886C0BB1BD74AE90014E661 /* BaseViewModel.m in Sources */,
 				38CBDDC41BEB4755008D5ADC /* TuWanModel.m in Sources */,
 				38CBDDB81BEB4755008D5ADC /* HeroCZModel.m in Sources */,
@@ -1266,6 +1308,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.YGZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -1296,6 +1339,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.YGZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};
