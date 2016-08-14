@@ -131,6 +131,8 @@
 		BC1D8FC71D5DB16400A0F689 /* FreeHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FC61D5DB16400A0F689 /* FreeHeroCell.m */; };
 		BC1D8FD01D5DC3B000A0F689 /* HeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */; };
 		BC1D8FD31D5DCF8A00A0F689 /* FreeHeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */; };
+		BC22DA9E1D5F164300056DD5 /* AllHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */; };
+		BC22DAA11D5F192C00056DD5 /* AllHeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC22DAA01D5F192C00056DD5 /* AllHeroViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -362,6 +364,10 @@
 		BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroViewModel.m; sourceTree = "<group>"; };
 		BC1D8FD11D5DCF8A00A0F689 /* FreeHeroViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeHeroViewModel.h; sourceTree = "<group>"; };
 		BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeHeroViewModel.m; sourceTree = "<group>"; };
+		BC22DA9C1D5F164300056DD5 /* AllHeroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllHeroCell.h; sourceTree = "<group>"; };
+		BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllHeroCell.m; sourceTree = "<group>"; };
+		BC22DA9F1D5F192C00056DD5 /* AllHeroViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllHeroViewModel.h; sourceTree = "<group>"; };
+		BC22DAA01D5F192C00056DD5 /* AllHeroViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllHeroViewModel.m; sourceTree = "<group>"; };
 		DD4F0750B5DAAA87BA236B31 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -487,6 +493,8 @@
 				382306B01BF46A4F0069E0FD /* SumAbilityViewModel.m */,
 				BC1D8FD11D5DCF8A00A0F689 /* FreeHeroViewModel.h */,
 				BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */,
+				BC22DA9F1D5F192C00056DD5 /* AllHeroViewModel.h */,
+				BC22DAA01D5F192C00056DD5 /* AllHeroViewModel.m */,
 				BC1D8FCE1D5DC3B000A0F689 /* HeroViewModel.h */,
 				BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */,
 			);
@@ -902,6 +910,8 @@
 				38F219781BF32F0600F11009 /* BestGroupDetailHeroCell.m */,
 				BC1D8FC51D5DB16400A0F689 /* FreeHeroCell.h */,
 				BC1D8FC61D5DB16400A0F689 /* FreeHeroCell.m */,
+				BC22DA9C1D5F164300056DD5 /* AllHeroCell.h */,
+				BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */,
 			);
 			name = "多玩";
 			sourceTree = "<group>";
@@ -1141,6 +1151,7 @@
 				38CBDDBD1BEB4755008D5ADC /* HeroWeekDataModel.m in Sources */,
 				38F219791BF32F0600F11009 /* BestGroupDetailHeroCell.m in Sources */,
 				382306B71BF46FF90069E0FD /* SumAbilityDetailViewController.m in Sources */,
+				BC22DA9E1D5F164300056DD5 /* AllHeroCell.m in Sources */,
 				38F219761BF32EC800F11009 /* BestGroupDetailIntroCell.m in Sources */,
 				38CBDD841BEB474C008D5ADC /* TuWanNetManager.m in Sources */,
 				38CBDD7B1BEB4719008D5ADC /* TuWanViewModel.m in Sources */,
@@ -1163,6 +1174,7 @@
 				38BEAC221BEC95B800D567D7 /* TuWanHtmlViewController.m in Sources */,
 				38DC08251BF1CB880077E792 /* MusicListViewController.m in Sources */,
 				38CBDDB61BEB4755008D5ADC /* GiftModel.m in Sources */,
+				BC22DAA11D5F192C00056DD5 /* AllHeroViewModel.m in Sources */,
 				3886C0C11BD74B090014E661 /* BaseModel.m in Sources */,
 				382A8FEC1BEB06C700A1874C /* TuWanViewController.m in Sources */,
 				3886C0981BD748830014E661 /* main.m in Sources */,

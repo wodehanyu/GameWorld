@@ -9,11 +9,14 @@
 #import "HeroViewController.h"
 #import "FreeHeroCell.h"
 #import "FreeHeroViewModel.h"
+#import "AllHeroViewModel.h"
+#import "AllHeroCell.h"
 @interface HeroViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong) UICollectionView * freeHreoCollectionView;
 @property(nonatomic,strong) UICollectionView * allHreoCollectionView;
 @property(nonatomic,strong) UIView * titleView;
 @property(nonatomic,strong) FreeHeroViewModel * freeModel;
+@property(nonatomic,strong) AllHeroViewModel * allModel;
 
 @end
 @implementation HeroViewController
@@ -33,7 +36,6 @@
             make.height.mas_equalTo(40);
             
         }];
-
         UIButton* but1=[UIButton buttonWithType:UIButtonTypeSystem];
         [but1 setTitle:@"免费英雄" forState:UIControlStateNormal];
         [but1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -55,33 +57,42 @@
                 [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                     but1.titleLabel.font=[UIFont systemFontOfSize:18];
                     but2.titleLabel.font=[UIFont systemFontOfSize:16];
-                    [self.view addSubview:self.freeHreoCollectionView];
-                    [self.freeHreoCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-                        make.top.mas_equalTo(self.titleView.mas_bottom).mas_equalTo(0);
-                        make.bottom.right.left.mas_equalTo(0);
-                    }];
+                    if (![self.freeHreoCollectionView isDescendantOfView:self.view]) {
+                        [self.view addSubview:self.freeHreoCollectionView];
+                        [self.freeHreoCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+                            make.top.mas_equalTo(self.titleView.mas_bottom).mas_equalTo(0);
+                            make.left.right.bottom.mas_equalTo(0);
+                        }];
+                    }else if ([self.allHreoCollectionView isDescendantOfView:self.view ]) {
+                        [self.allHreoCollectionView setHidden:YES];
+                        //[self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:0];
+                    }
+                    
                 }];
             }
         }];
         [but2 bk_addObserverForKeyPath:@"selected" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld task:^(id obj, NSDictionary *change) {
-            
             NSNumber* num=change[@"new"];
             if (num.integerValue==1) {
-                but2.titleLabel.font=[UIFont systemFontOfSize:18];
-                but1.titleLabel.font=[UIFont systemFontOfSize:16];
-                [self.view addSubview:[UIView new]];
-//                [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-//                    [self.view addSubview:self.freeHreoCollectionView];
-//                    [self.freeHreoCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-//                        make.top.mas_equalTo(self.titleView.mas_bottom).mas_equalTo(0);
-//                        make.bottom.right.left.mas_equalTo(0);
-//                    }];
-//                }];
+                [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                    but2.titleLabel.font=[UIFont systemFontOfSize:18];
+                    but1.titleLabel.font=[UIFont systemFontOfSize:16];
+                    if (![self.allHreoCollectionView isDescendantOfView:self.view]) {
+                        [self.view insertSubview:self.allHreoCollectionView aboveSubview:self.freeHreoCollectionView];
+                        [self.allHreoCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+                            make.top.mas_equalTo(self.titleView.mas_bottom).mas_equalTo(0);
+                            make.bottom.right.left.mas_equalTo(0);
+                        }];
+                        
+                    }else{
+                        [self.allHreoCollectionView setHidden:NO];
+                    }
+                }];
             }
         }];
-
+        
         //添加事件响应
-    
+        
         [but1 bk_addEventHandler:^(UIButton* sender) {
             if(!sender.selected){
                 but2.selected=NO;
@@ -94,7 +105,9 @@
                 but1.selected=NO;
             }
         } forControlEvents:UIControlEventTouchUpInside];
-        
+        /**
+         *为两个按钮添加约束
+         */
         [but1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(30);
             make.centerY.mas_equalTo(0);
@@ -119,33 +132,77 @@
 -(UICollectionView*)freeHreoCollectionView{
     if (!_freeHreoCollectionView) {
         UICollectionViewFlowLayout* flowLayout=[UICollectionViewFlowLayout new];
-        flowLayout.itemSize=CGSizeMake(125, 70);
+        flowLayout.itemSize=CGSizeMake(170, 100);
         flowLayout.minimumLineSpacing=10.0F;
         _freeHreoCollectionView=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         _freeHreoCollectionView.backgroundColor=[UIColor whiteColor];
         _freeHreoCollectionView.delegate=self;
         _freeHreoCollectionView.dataSource=self;
         [_freeHreoCollectionView registerClass:[FreeHeroCell class] forCellWithReuseIdentifier:@"cell"];
-        _freeHreoCollectionView.header=[MJRefreshHeader headerWithRefreshingBlock:^{
+        _freeHreoCollectionView.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             if (self.freeModel && self.freeModel.rowNumber>0) {
-                
+               [_freeHreoCollectionView.header endRefreshing];
             }else{
-            [self.freeModel getDataFromNetCompleteHandle:^(NSError *error) {
-                 if (error) {
-                    [self showErrorMsg:error.localizedDescription];
-                }else{
-                    [_freeHreoCollectionView reloadData];
-                    [_freeHreoCollectionView.header endRefreshing];
-                }
-                
-            }];
-
-            }
+                [self.freeModel getDataFromNetCompleteHandle:^(NSError *error) {
+                    if (error) {
+                        [self showErrorMsg:error.localizedDescription];
+                    }else{
                         
+                        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                            [_freeHreoCollectionView reloadData];
+                            [_freeHreoCollectionView.header endRefreshing];
+                        }];
+                    }
+                }];
+         
+            }
         }];
         
+        [_allHreoCollectionView.header beginRefreshing];
     }
     return _freeHreoCollectionView;
+}
+-(AllHeroViewModel*)allModel{
+    if (!_allModel) {
+        _allModel=[AllHeroViewModel new];
+    }
+    return _allModel;
+}
+-(UICollectionView*)allHreoCollectionView{
+    if (!_allHreoCollectionView) {
+        UICollectionViewFlowLayout* flowLayout=[UICollectionViewFlowLayout new];
+        flowLayout.itemSize=CGSizeMake(70, 75);
+        flowLayout.minimumLineSpacing=5.0f;
+        flowLayout.minimumInteritemSpacing=10.f;
+        flowLayout.sectionInset=UIEdgeInsetsMake(5, 15, 10, 15);
+        _allHreoCollectionView=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _allHreoCollectionView.backgroundColor=[UIColor whiteColor];
+        _allHreoCollectionView.delegate=self;
+        _allHreoCollectionView.dataSource=self;
+        [_allHreoCollectionView registerClass:[AllHeroCell class] forCellWithReuseIdentifier:@"cell"];
+        
+        _allHreoCollectionView.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            if (self.allModel && self.allModel.rowNumber>0){
+                [_allHreoCollectionView.header endRefreshing];
+            }else{
+                [self.allModel getDataFromNetCompleteHandle:^(NSError *error) {
+                    if (error) {
+                        [self showErrorMsg:error.localizedDescription];
+                        
+                    }else{
+                        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                            [_allHreoCollectionView reloadData];
+                            [_allHreoCollectionView.header endRefreshing];
+                        }];
+                    }
+                }];
+            }            
+        }];
+        
+        [_allHreoCollectionView.header beginRefreshing];
+    }
+    return _allHreoCollectionView;
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -163,17 +220,29 @@
 }
 #pragma mark - UICollectionViewDataSource
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.freeModel.rowNumber;
+    if ([collectionView isEqual:self.freeHreoCollectionView]) {
+        return self.freeModel.rowNumber;
+    }else{
+        return self.allModel.rowNumber;
+    }
+    
 
 }
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    FreeHeroCell* cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    if ([collectionView isEqual:self.freeHreoCollectionView]) {
+        FreeHeroCell* cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     [cell.icon.imageView setImageWithURL:[self.freeModel iconURLForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
     cell.nameLB.text=[self.freeModel nameForRow:indexPath.row];
     cell.titleLB.text=[self.freeModel titleForRow:indexPath.row];
     cell.locationLB.text=[self.freeModel locationForRow:indexPath.row];
     return cell;
-    
+    }else{
+        AllHeroCell* cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+        [cell.iconIV.imageView setImageWithURL:[self.allModel iconURLForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+        cell.nameLB.text=[self.allModel nameForRow:indexPath.row];
+    return cell;
+    }
+        
 }
 
 

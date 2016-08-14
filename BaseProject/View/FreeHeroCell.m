@@ -16,7 +16,7 @@
         [_icon mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(10);
             make.centerY.mas_equalTo(0);
-            make.size.mas_equalTo(CGSizeMake(50, 50));
+            make.size.mas_equalTo(CGSizeMake(80, 80));
         }];
     }
     return _icon;
@@ -27,7 +27,7 @@
         [self.contentView addSubview:_titleLB];
         [_titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.icon.mas_right).mas_equalTo(7);
-            make.top.mas_equalTo(self.icon.mas_top).mas_equalTo(0);
+            make.top.mas_equalTo(self.icon.mas_top).mas_equalTo(5);
             make.height.mas_equalTo(17);
             make.right.mas_equalTo(-5);
         }];
@@ -43,7 +43,7 @@
         [self.contentView addSubview:_nameLB];
         [_nameLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.height.mas_equalTo(self.titleLB).mas_equalTo(0);
-            make.top.mas_equalTo(self.titleLB.mas_bottom).mas_equalTo(0);
+            make.top.mas_equalTo(self.titleLB.mas_bottom).mas_equalTo(10);
         }];
         _nameLB.font=[UIFont systemFontOfSize:14];
         _nameLB.textColor=kRGBColor(151, 153, 154);
