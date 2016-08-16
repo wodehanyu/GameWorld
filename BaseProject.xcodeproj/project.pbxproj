@@ -133,6 +133,9 @@
 		BC1D8FD31D5DCF8A00A0F689 /* FreeHeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */; };
 		BC22DA9E1D5F164300056DD5 /* AllHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */; };
 		BC22DAA11D5F192C00056DD5 /* AllHeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC22DAA01D5F192C00056DD5 /* AllHeroViewModel.m */; };
+		BCC0136F1D62C114007762F7 /* HeroDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC0136E1D62C114007762F7 /* HeroDetailViewModel.m */; };
+		BCC013721D62F08E007762F7 /* HreoDetilTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC013711D62F08E007762F7 /* HreoDetilTitleViewModel.m */; };
+		BCC0137B1D62FDEC007762F7 /* HeroDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC0137A1D62FDEC007762F7 /* HeroDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -368,6 +371,12 @@
 		BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllHeroCell.m; sourceTree = "<group>"; };
 		BC22DA9F1D5F192C00056DD5 /* AllHeroViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllHeroViewModel.h; sourceTree = "<group>"; };
 		BC22DAA01D5F192C00056DD5 /* AllHeroViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllHeroViewModel.m; sourceTree = "<group>"; };
+		BCC0136D1D62C114007762F7 /* HeroDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroDetailViewModel.h; sourceTree = "<group>"; };
+		BCC0136E1D62C114007762F7 /* HeroDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroDetailViewModel.m; sourceTree = "<group>"; };
+		BCC013701D62F08E007762F7 /* HreoDetilTitleViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HreoDetilTitleViewModel.h; sourceTree = "<group>"; };
+		BCC013711D62F08E007762F7 /* HreoDetilTitleViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HreoDetilTitleViewModel.m; sourceTree = "<group>"; };
+		BCC013791D62FDEC007762F7 /* HeroDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroDetailViewController.h; sourceTree = "<group>"; };
+		BCC0137A1D62FDEC007762F7 /* HeroDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroDetailViewController.m; sourceTree = "<group>"; };
 		DD4F0750B5DAAA87BA236B31 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -439,6 +448,8 @@
 				382306B31BF46C6A0069E0FD /* SumAbilityViewController.m */,
 				382306B51BF46FF90069E0FD /* SumAbilityDetailViewController.h */,
 				382306B61BF46FF90069E0FD /* SumAbilityDetailViewController.m */,
+				BCC013791D62FDEC007762F7 /* HeroDetailViewController.h */,
+				BCC0137A1D62FDEC007762F7 /* HeroDetailViewController.m */,
 			);
 			path = "多玩盒子";
 			sourceTree = "<group>";
@@ -497,6 +508,10 @@
 				BC22DAA01D5F192C00056DD5 /* AllHeroViewModel.m */,
 				BC1D8FCE1D5DC3B000A0F689 /* HeroViewModel.h */,
 				BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */,
+				BCC013701D62F08E007762F7 /* HreoDetilTitleViewModel.h */,
+				BCC013711D62F08E007762F7 /* HreoDetilTitleViewModel.m */,
+				BCC0136D1D62C114007762F7 /* HeroDetailViewModel.h */,
+				BCC0136E1D62C114007762F7 /* HeroDetailViewModel.m */,
 			);
 			path = "多玩盒子";
 			sourceTree = "<group>";
@@ -739,8 +754,8 @@
 			isa = PBXGroup;
 			children = (
 				38CBDD7C1BEB474C008D5ADC /* DuoWanNetManager.h */,
-				38CBDD7D1BEB474C008D5ADC /* DuoWanNetManager.m */,
 				38CBDD7E1BEB474C008D5ADC /* DuoWanRequestPath.h */,
+				38CBDD7D1BEB474C008D5ADC /* DuoWanNetManager.m */,
 				38CBDD7F1BEB474C008D5ADC /* TuWanNetManager.h */,
 				38CBDD801BEB474C008D5ADC /* TuWanNetManager.m */,
 				38CBDD811BEB474C008D5ADC /* XiMaNetManager.h */,
@@ -1118,6 +1133,7 @@
 				3836B1761BF42CE8005FE9E6 /* ZBItemViewModel.m in Sources */,
 				3836B1791BF42F19005FE9E6 /* ZBItemViewController.m in Sources */,
 				382306B11BF46A4F0069E0FD /* SumAbilityViewModel.m in Sources */,
+				BCC013721D62F08E007762F7 /* HreoDetilTitleViewModel.m in Sources */,
 				382A8FF21BEB071500A1874C /* RankListViewController.m in Sources */,
 				3848D08F1BF2CE4E0074ADED /* SearchViewController.m in Sources */,
 				3844171A1BEF6076004D486F /* TuWanPicModel.m in Sources */,
@@ -1149,6 +1165,7 @@
 				38CBDD831BEB474C008D5ADC /* DuoWanNetManager.m in Sources */,
 				38CBDD781BEB442A008D5ADC /* Factory.m in Sources */,
 				38CBDDBD1BEB4755008D5ADC /* HeroWeekDataModel.m in Sources */,
+				BCC0136F1D62C114007762F7 /* HeroDetailViewModel.m in Sources */,
 				38F219791BF32F0600F11009 /* BestGroupDetailHeroCell.m in Sources */,
 				382306B71BF46FF90069E0FD /* SumAbilityDetailViewController.m in Sources */,
 				BC22DA9E1D5F164300056DD5 /* AllHeroCell.m in Sources */,
@@ -1183,6 +1200,7 @@
 				3804CE521BD758F10046C8C8 /* NSObject+Common.m in Sources */,
 				38CBDDBB1BEB4755008D5ADC /* HeroSkinModel.m in Sources */,
 				38CBDDB51BEB4755008D5ADC /* FreeHeroModel.m in Sources */,
+				BCC0137B1D62FDEC007762F7 /* HeroDetailViewController.m in Sources */,
 				3836B1731BF42AF8005FE9E6 /* ZBCategoryViewModel.m in Sources */,
 				38CBDDC51BEB4755008D5ADC /* AlbumModel.m in Sources */,
 			);

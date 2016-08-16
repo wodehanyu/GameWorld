@@ -83,7 +83,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Factory addMenuItemToVC:self];
-    self.title = @"音乐TOP50";
+    self.title = @"音乐列表";
     [self.tableView.header beginRefreshing];
 }
 
