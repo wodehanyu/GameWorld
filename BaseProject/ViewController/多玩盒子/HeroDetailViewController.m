@@ -9,9 +9,11 @@
 #import "HeroDetailViewController.h"
 #import "HreoDetilTitleViewModel.h"
 #import "TRImageView.h"
+#import "Factory.h"
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define KMutiplier 0.16
+#define kTitleTinColor kRGBColor(244, 245, 246)
 @interface HeroDetailViewController ()
 @property(nonatomic,strong)HreoDetilTitleViewModel* model;
 @property(nonatomic,strong)UIView* TitleView;
@@ -28,23 +30,23 @@
 -(UIView*)TitleView{
     if (!_TitleView) {
         _TitleView=[UIView new];
-        _TitleView.backgroundColor=[UIColor whiteColor];
+        _TitleView.backgroundColor=kTitleTinColor;
         TRImageView* imageView=[TRImageView new];
-        [imageView.imageView setImageWithURL:self.model.iconURL placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
         [_TitleView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(7);
             make.left.mas_equalTo(10);
-            make.bottom.mas_equalTo(16);
+            make.bottom.mas_equalTo(-16);
             make.width.mas_equalTo(imageView.mas_height).mas_equalTo(0);
             
         }];
         
         UILabel* titleLB=[UILabel label];
-        titleLB.font=[UIFont systemFontOfSize:16];
+        titleLB.font=[UIFont systemFontOfSize:14];
         titleLB.textColor=[UIColor blackColor];
-        titleLB.text=self.model.name;
-        [imageView addSubview:titleLB];
+        titleLB.backgroundColor=kTitleTinColor;
+        titleLB.textAlignment=NSTextAlignmentLeft;
+        [_TitleView addSubview:titleLB];
         [titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(imageView.mas_right).mas_equalTo(8);
             make.top.mas_equalTo(15);
@@ -54,24 +56,25 @@
         }];
         
         UILabel* tagsLB=[UILabel label];
-        tagsLB.font=[UIFont systemFontOfSize:14];
+        tagsLB.font=[UIFont systemFontOfSize:13];
         tagsLB.textAlignment=NSTextAlignmentCenter;
         tagsLB.textColor=[UIColor whiteColor];
         tagsLB.backgroundColor=kRGBColor(73, 101, 150);
-        tagsLB.text=self.model.tags;
+        tagsLB.layer.cornerRadius=12.5;
+        tagsLB.layer.masksToBounds=YES;
         [_TitleView addSubview:tagsLB];
         [tagsLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(titleLB.mas_right).mas_equalTo(2);
             make.centerY.mas_equalTo(titleLB.mas_centerY).mas_equalTo(0);
-            make.width.mas_equalTo(35);
+            make.width.mas_equalTo(45);
             make.height.mas_equalTo(25);
         }];
         
         UILabel* priceLB=[UILabel label];
-        priceLB.font=[UIFont systemFontOfSize:14];
-        priceLB.backgroundColor=[UIColor whiteColor];
+        priceLB.font=[UIFont systemFontOfSize:13];
+        priceLB.backgroundColor=kTitleTinColor;
+        priceLB.textAlignment=NSTextAlignmentLeft;
         priceLB.textColor=kRGBColor(142, 143, 144);
-        priceLB.text=self.model.price;
         [_TitleView addSubview:priceLB];
         [priceLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(titleLB.mas_left).mas_equalTo(0);
@@ -81,10 +84,9 @@
         }];
         
         UILabel* attackLB=[UILabel label];
-        attackLB.font=[UIFont systemFontOfSize:14];
+        attackLB.font=[UIFont systemFontOfSize:13];
         attackLB.textColor=kRGBColor(142, 143, 144);
-        attackLB.backgroundColor=[UIColor whiteColor];
-        attackLB.text=[NSString stringWithFormat:@"攻%@",self.model.attack];
+        attackLB.backgroundColor=kTitleTinColor;
         [_TitleView addSubview:attackLB];
         [attackLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(titleLB.mas_left).mas_equalTo(0);
@@ -95,10 +97,9 @@
         }];
         
         UILabel* defenseLB=[UILabel label];
-        defenseLB.font=[UIFont systemFontOfSize:14];
+        defenseLB.font=[UIFont systemFontOfSize:13];
         defenseLB.textColor=kRGBColor(142, 143, 144);
-        defenseLB.backgroundColor=[UIColor whiteColor];
-        defenseLB.text=[NSString stringWithFormat:@"防%@",self.model.defense];
+        defenseLB.backgroundColor=kTitleTinColor;
         [_TitleView addSubview:defenseLB];
         [defenseLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(attackLB.mas_right).mas_equalTo(0);
@@ -109,10 +110,9 @@
         }];
         
         UILabel* magicLB=[UILabel label];
-        magicLB.font=[UIFont systemFontOfSize:14];
+        magicLB.font=[UIFont systemFontOfSize:13];
         magicLB.textColor=kRGBColor(142, 143, 144);
-        magicLB.backgroundColor=[UIColor whiteColor];
-        magicLB.text=[NSString stringWithFormat:@"法%@",self.model.magic];
+        magicLB.backgroundColor=kTitleTinColor;
         [_TitleView addSubview:magicLB];
         [magicLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(defenseLB.mas_right).mas_equalTo(0);
@@ -124,10 +124,9 @@
 
         
         UILabel* difficutyLB=[UILabel label];
-        difficutyLB.font=[UIFont systemFontOfSize:14];
+        difficutyLB.font=[UIFont systemFontOfSize:13];
         difficutyLB.textColor=kRGBColor(142, 143, 144);
-        difficutyLB.backgroundColor=[UIColor whiteColor];
-        difficutyLB.text=[NSString stringWithFormat:@"法%@",self.model.difficulty];
+        difficutyLB.backgroundColor=kTitleTinColor;
         [_TitleView addSubview:difficutyLB];
         [difficutyLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(magicLB.mas_right).mas_equalTo(0);
@@ -138,6 +137,25 @@
         }];
         
         
+        [self.model getDataFromNetCompleteHandle:^(NSError *error) {
+            if (!error) {
+                [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                    difficutyLB.text=[NSString stringWithFormat:@"难度%@",self.model.difficulty];
+                    magicLB.text=[NSString stringWithFormat:@"法%@",self.model.magic];
+                    priceLB.text=self.model.price;
+                    tagsLB.text=self.model.tags;
+                    [imageView.imageView setImageWithURL:self.model.iconURL placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+                    titleLB.text=self.model.name;
+                    attackLB.text=[NSString stringWithFormat:@"攻%@",self.model.attack];
+                    defenseLB.text=[NSString stringWithFormat:@"防%@",self.model.defense];
+                    
+                }];
+            }
+        }];
+
+
+        
+        
         
         
     }
@@ -146,7 +164,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor=[UIColor whiteColor];
+    // Do any additional setup after loading the view.]
+    [Factory addBackItemToVC:self];
+        self.title=self.model.name;
     [self.view addSubview:self.TitleView];
     [self.TitleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_equalTo(0);

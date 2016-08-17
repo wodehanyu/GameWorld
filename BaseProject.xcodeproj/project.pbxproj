@@ -131,6 +131,7 @@
 		BC1D8FC71D5DB16400A0F689 /* FreeHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FC61D5DB16400A0F689 /* FreeHeroCell.m */; };
 		BC1D8FD01D5DC3B000A0F689 /* HeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */; };
 		BC1D8FD31D5DCF8A00A0F689 /* FreeHeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */; };
+		BC1EB5771D64005F00DF6783 /* ScrollDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1EB5761D64005F00DF6783 /* ScrollDisplayViewController.m */; };
 		BC22DA9E1D5F164300056DD5 /* AllHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */; };
 		BC22DAA11D5F192C00056DD5 /* AllHeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC22DAA01D5F192C00056DD5 /* AllHeroViewModel.m */; };
 		BCC0136F1D62C114007762F7 /* HeroDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC0136E1D62C114007762F7 /* HeroDetailViewModel.m */; };
@@ -367,6 +368,8 @@
 		BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroViewModel.m; sourceTree = "<group>"; };
 		BC1D8FD11D5DCF8A00A0F689 /* FreeHeroViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeHeroViewModel.h; sourceTree = "<group>"; };
 		BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeHeroViewModel.m; sourceTree = "<group>"; };
+		BC1EB5751D64005F00DF6783 /* ScrollDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollDisplayViewController.h; sourceTree = "<group>"; };
+		BC1EB5761D64005F00DF6783 /* ScrollDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollDisplayViewController.m; sourceTree = "<group>"; };
 		BC22DA9C1D5F164300056DD5 /* AllHeroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllHeroCell.h; sourceTree = "<group>"; };
 		BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllHeroCell.m; sourceTree = "<group>"; };
 		BC22DA9F1D5F192C00056DD5 /* AllHeroViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllHeroViewModel.h; sourceTree = "<group>"; };
@@ -783,6 +786,8 @@
 				3804CE481BD758F10046C8C8 /* Category */,
 				38CBDD761BEB442A008D5ADC /* Factory.h */,
 				38CBDD771BEB442A008D5ADC /* Factory.m */,
+				BC1EB5751D64005F00DF6783 /* ScrollDisplayViewController.h */,
+				BC1EB5761D64005F00DF6783 /* ScrollDisplayViewController.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1123,6 +1128,7 @@
 				382391681BF0726B00F2F52F /* XiMaCategoryViewModel.m in Sources */,
 				38CBDDBA1BEB4755008D5ADC /* HeroGiftModel.m in Sources */,
 				3804CE541BD758F10046C8C8 /* NSString+QRCode.m in Sources */,
+				BC1EB5771D64005F00DF6783 /* ScrollDisplayViewController.m in Sources */,
 				38F219701BF31EA400F11009 /* BestGroupViewModel.m in Sources */,
 				38CBDDB41BEB4755008D5ADC /* BestGroupModel.m in Sources */,
 				382A8FEF1BEB06EB00A1874C /* MyInfoViewController.m in Sources */,

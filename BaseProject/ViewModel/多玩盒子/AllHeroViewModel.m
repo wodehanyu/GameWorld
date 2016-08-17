@@ -34,4 +34,7 @@ self.dataTask=[DuoWanNetManager getHeroWithType:HeroTypeAll completionHandle:^(A
 -(NSURL*)iconURLForRow:(NSInteger)row{
     return [NSURL URLWithString:[NSString stringWithFormat:@"http://img.lolbox.duowan.com/champions/%@_120x120.jpg",[self modelForRow:row].enName]];
 }
+-(NSString*)enNameForRow:(NSInteger)row{
+    return [self modelForRow:row].enName;
+}
 @end

@@ -17,5 +17,6 @@
 @property(nonatomic,strong) NSString * price;
 @property(nonatomic,strong) NSString * tags;
 @property(nonatomic,strong) NSURL * iconURL;
+@property(nonatomic,strong) NSString * enName;
 -(instancetype)initWithEnName:(NSString*)enName;
 @end

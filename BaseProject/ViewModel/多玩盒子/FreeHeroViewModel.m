@@ -39,5 +39,8 @@
 -(NSString*)locationForRow:(NSInteger)row{
     return [self modelForRow:row].location;
 }
+-(NSString*)enNameForRow:(NSInteger)row{
+    return [self modelForRow:row].enName;
+}
 
 @end

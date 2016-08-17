@@ -19,7 +19,7 @@
 
 @end
 
-@implementation HeroDetailBraumModel
+@implementation HeroDetailSkillModel
 
 @end
 

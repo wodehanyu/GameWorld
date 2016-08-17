@@ -17,4 +17,5 @@
 -(NSString*)titleForRow:(NSInteger)row;
 -(NSString*)nameForRow:(NSInteger)row;
 -(NSString*)locationForRow:(NSInteger)row;
+-(NSString*)enNameForRow:(NSInteger)row;
 @end

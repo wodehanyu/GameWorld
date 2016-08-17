@@ -12,4 +12,5 @@
 @property(nonatomic)  NSInteger rowNumber;
 -(NSURL*)iconURLForRow:(NSInteger)row;
 -(NSString*)nameForRow:(NSInteger)row;
+-(NSString*)enNameForRow:(NSInteger)row;
 @end

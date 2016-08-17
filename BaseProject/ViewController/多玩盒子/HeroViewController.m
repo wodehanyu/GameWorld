@@ -11,6 +11,7 @@
 #import "FreeHeroViewModel.h"
 #import "AllHeroViewModel.h"
 #import "AllHeroCell.h"
+#import "HeroDetailViewController.h"
 @interface HeroViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong) UICollectionView * freeHreoCollectionView;
 @property(nonatomic,strong) UICollectionView * allHreoCollectionView;
@@ -244,6 +245,21 @@
     }
         
 }
+#pragma mark - UICollectionViewDelegate
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    HeroDetailViewController* vc=[HeroDetailViewController new];
+    if ([collectionView isEqual:self.freeHreoCollectionView]) {
+        vc.enName=[self.freeModel enNameForRow:indexPath.row];
+    }else{
+        vc.enName=[self.allModel enNameForRow:indexPath.row];
+    }
+    [self.navigationController pushViewController:vc animated:YES];
+    
+
+}
+
+
 
 
 

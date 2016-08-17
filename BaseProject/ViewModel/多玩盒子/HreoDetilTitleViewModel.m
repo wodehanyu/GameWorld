@@ -12,28 +12,9 @@
 /** 初始化数据*/
 -(instancetype)initWithEnName:(NSString *)enName{
     if (self=[super init]) {
-      [DuoWanNetManager getHeroDetailWithHeroName:enName completionHandle:^(HeroDetailModel* model, NSError *error) {
-          if (error) {
-              [self showErrorMsg:error.localizedDescription];
-          }else{
-              _name=model.title;
-              NSRange range=[model.price rangeOfString:@","];
-              NSInteger num=range.location-1;
-              NSString* price1=[model.price copy];
-              NSString* price2=[model.price copy];
-              _price=[NSString stringWithFormat:@"金 %@ ,券 %@",[price1 substringToIndex:num],[price2 substringFromIndex:num]];
-              _tags=model.tags;
-              _attack=model.ratingAttack;
-              _magic=model.ratingMagic;
-              _defense=model.ratingDefense;
-              _difficulty=model.ratingDifficulty;
-              _iconURL=[NSURL URLWithString:[NSString stringWithFormat:@"http://img.lolbox.duowan.com/champions/%@_120x120.jpg",enName]];
-          
-          }
-          
-      }];
-        
-    }
+      
+              _enName=enName;
+       }
     
     return self;
 
@@ -44,5 +25,26 @@
     }
     return self;
 }
+-(void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
+    [DuoWanNetManager getHeroDetailWithHeroName:_enName completionHandle:^(HeroDetailModel* model, NSError *error) {
+        if (error) {
+            [self showErrorMsg:error.localizedDescription];
+        }else{
+            _name=model.title;
+            NSRange range=[model.price rangeOfString:@","];
+            NSInteger num=range.location+1;
+            NSString* price1=[model.price copy];
+            NSString* price2=[model.price copy];
+            _price=[NSString stringWithFormat:@"金 %@ 券 %@",[price1 substringToIndex:num],[price2 substringFromIndex:num]];
+            _tags=model.tags;
+            _attack=model.ratingAttack;
+            _magic=model.ratingMagic;
+            _defense=model.ratingDefense;
+            _difficulty=model.ratingDifficulty;
+            _iconURL=[NSURL URLWithString:[NSString stringWithFormat:@"http://img.lolbox.duowan.com/champions/%@_120x120.jpg",_enName]];
+        }
+        completionHandle(error);
 
+ }];
+}
 @end
