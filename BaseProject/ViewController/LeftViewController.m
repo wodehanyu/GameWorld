@@ -11,6 +11,7 @@
 #import "RankListViewController.h"
 #import "TuWanViewController.h"
 #import "DuoWanTabBarController.h"
+#import "MyInfoViewController.h"
 
 @interface LeftViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -68,6 +69,10 @@ kRemoveCellSeparator
             [self.sideMenuViewController setContentViewController:[DuoWanTabBarController standardInstance] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
+        case 3:
+            [self.sideMenuViewController setContentViewController:[MyInfoViewController new] animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            
         default:
             break;
     }

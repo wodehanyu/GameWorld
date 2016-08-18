@@ -128,6 +128,12 @@
 		38F219731BF3240400F11009 /* BestGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F219721BF3240400F11009 /* BestGroupCell.m */; };
 		38F219761BF32EC800F11009 /* BestGroupDetailIntroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F219751BF32EC800F11009 /* BestGroupDetailIntroCell.m */; };
 		38F219791BF32F0600F11009 /* BestGroupDetailHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F219781BF32F0600F11009 /* BestGroupDetailHeroCell.m */; };
+		BC1691801D65942C00304ADF /* HeroDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC16917F1D65942C00304ADF /* HeroDetailTableViewController.m */; };
+		BC1691861D65965A00304ADF /* HeroCZTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1691851D65965A00304ADF /* HeroCZTableViewController.m */; };
+		BC1691891D65969400304ADF /* HeroSoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1691881D65969400304ADF /* HeroSoundTableViewController.m */; };
+		BC16918C1D6596D100304ADF /* HeroVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC16918B1D6596D100304ADF /* HeroVideoTableViewController.m */; };
+		BC16918F1D65983D00304ADF /* HeroTop10PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC16918E1D65983D00304ADF /* HeroTop10PlayersViewController.m */; };
+		BC1691951D65993200304ADF /* SkillInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1691941D65993200304ADF /* SkillInfoTableViewCell.m */; };
 		BC1D8FC71D5DB16400A0F689 /* FreeHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FC61D5DB16400A0F689 /* FreeHeroCell.m */; };
 		BC1D8FD01D5DC3B000A0F689 /* HeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FCF1D5DC3B000A0F689 /* HeroViewModel.m */; };
 		BC1D8FD31D5DCF8A00A0F689 /* FreeHeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D8FD21D5DCF8A00A0F689 /* FreeHeroViewModel.m */; };
@@ -362,6 +368,18 @@
 		38F219781BF32F0600F11009 /* BestGroupDetailHeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestGroupDetailHeroCell.m; sourceTree = "<group>"; };
 		4329DABFE5AD654FE71597C9 /* Pods-BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.debug.xcconfig"; sourceTree = "<group>"; };
 		5EAAD623A23724C816F8DC02 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC16917E1D65942C00304ADF /* HeroDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroDetailTableViewController.h; sourceTree = "<group>"; };
+		BC16917F1D65942C00304ADF /* HeroDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroDetailTableViewController.m; sourceTree = "<group>"; };
+		BC1691841D65965A00304ADF /* HeroCZTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroCZTableViewController.h; sourceTree = "<group>"; };
+		BC1691851D65965A00304ADF /* HeroCZTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroCZTableViewController.m; sourceTree = "<group>"; };
+		BC1691871D65969400304ADF /* HeroSoundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroSoundTableViewController.h; sourceTree = "<group>"; };
+		BC1691881D65969400304ADF /* HeroSoundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroSoundTableViewController.m; sourceTree = "<group>"; };
+		BC16918A1D6596D100304ADF /* HeroVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroVideoTableViewController.h; sourceTree = "<group>"; };
+		BC16918B1D6596D100304ADF /* HeroVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroVideoTableViewController.m; sourceTree = "<group>"; };
+		BC16918D1D65983D00304ADF /* HeroTop10PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroTop10PlayersViewController.h; sourceTree = "<group>"; };
+		BC16918E1D65983D00304ADF /* HeroTop10PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroTop10PlayersViewController.m; sourceTree = "<group>"; };
+		BC1691931D65993200304ADF /* SkillInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillInfoTableViewCell.h; sourceTree = "<group>"; };
+		BC1691941D65993200304ADF /* SkillInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillInfoTableViewCell.m; sourceTree = "<group>"; };
 		BC1D8FC51D5DB16400A0F689 /* FreeHeroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeHeroCell.h; sourceTree = "<group>"; };
 		BC1D8FC61D5DB16400A0F689 /* FreeHeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeHeroCell.m; sourceTree = "<group>"; };
 		BC1D8FCE1D5DC3B000A0F689 /* HeroViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroViewModel.h; sourceTree = "<group>"; };
@@ -453,6 +471,16 @@
 				382306B61BF46FF90069E0FD /* SumAbilityDetailViewController.m */,
 				BCC013791D62FDEC007762F7 /* HeroDetailViewController.h */,
 				BCC0137A1D62FDEC007762F7 /* HeroDetailViewController.m */,
+				BC16917E1D65942C00304ADF /* HeroDetailTableViewController.h */,
+				BC16917F1D65942C00304ADF /* HeroDetailTableViewController.m */,
+				BC1691841D65965A00304ADF /* HeroCZTableViewController.h */,
+				BC1691851D65965A00304ADF /* HeroCZTableViewController.m */,
+				BC1691871D65969400304ADF /* HeroSoundTableViewController.h */,
+				BC1691881D65969400304ADF /* HeroSoundTableViewController.m */,
+				BC16918A1D6596D100304ADF /* HeroVideoTableViewController.h */,
+				BC16918B1D6596D100304ADF /* HeroVideoTableViewController.m */,
+				BC16918D1D65983D00304ADF /* HeroTop10PlayersViewController.h */,
+				BC16918E1D65983D00304ADF /* HeroTop10PlayersViewController.m */,
 			);
 			path = "多玩盒子";
 			sourceTree = "<group>";
@@ -820,8 +848,8 @@
 			children = (
 				382A8FDB1BEB054F00A1874C /* 多玩盒子 */,
 				382A8FDC1BEB054F00A1874C /* 兔玩游戏 */,
-				382A8FDD1BEB054F00A1874C /* 我的信息 */,
 				382A8FDE1BEB054F00A1874C /* 喜马拉雅 */,
+				382A8FDD1BEB054F00A1874C /* 我的信息 */,
 				382A8FF31BEB076200A1874C /* LeftViewController.h */,
 				382A8FF41BEB076200A1874C /* LeftViewController.m */,
 			);
@@ -932,6 +960,8 @@
 				BC1D8FC61D5DB16400A0F689 /* FreeHeroCell.m */,
 				BC22DA9C1D5F164300056DD5 /* AllHeroCell.h */,
 				BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */,
+				BC1691931D65993200304ADF /* SkillInfoTableViewCell.h */,
+				BC1691941D65993200304ADF /* SkillInfoTableViewCell.m */,
 			);
 			name = "多玩";
 			sourceTree = "<group>";
@@ -1135,10 +1165,12 @@
 				38DC081E1BF194820077E792 /* MusicDetailCell.m in Sources */,
 				38CBDDBE1BEB4755008D5ADC /* ItemDetailModel.m in Sources */,
 				3885C8FA1BE8E96A009441EA /* PSCollectionViewCell.m in Sources */,
+				BC1691861D65965A00304ADF /* HeroCZTableViewController.m in Sources */,
 				3848D0921BF2D8D80074ADED /* SearchDetailViewController.m in Sources */,
 				3836B1761BF42CE8005FE9E6 /* ZBItemViewModel.m in Sources */,
 				3836B1791BF42F19005FE9E6 /* ZBItemViewController.m in Sources */,
 				382306B11BF46A4F0069E0FD /* SumAbilityViewModel.m in Sources */,
+				BC16918C1D6596D100304ADF /* HeroVideoTableViewController.m in Sources */,
 				BCC013721D62F08E007762F7 /* HreoDetilTitleViewModel.m in Sources */,
 				382A8FF21BEB071500A1874C /* RankListViewController.m in Sources */,
 				3848D08F1BF2CE4E0074ADED /* SearchViewController.m in Sources */,
@@ -1146,6 +1178,7 @@
 				38CBDDB91BEB4755008D5ADC /* HeroDetailModel.m in Sources */,
 				38F2196A1BF3165400F11009 /* BestGroupViewController.m in Sources */,
 				3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */,
+				BC1691891D65969400304ADF /* HeroSoundTableViewController.m in Sources */,
 				3836B1701BF42A9B005FE9E6 /* ZBCategoryViewController.m in Sources */,
 				3820200F1BEC36710003DB02 /* TuWanListViewController.m in Sources */,
 				38CBDD851BEB474C008D5ADC /* XiMaNetManager.m in Sources */,
@@ -1193,17 +1226,20 @@
 				382A8FE91BEB066300A1874C /* DuoWanTabBarController.m in Sources */,
 				382391651BF0496200F2F52F /* XiMaCategoryCell.m in Sources */,
 				3885C8FB1BE8E96A009441EA /* README.md in Sources */,
+				BC16918F1D65983D00304ADF /* HeroTop10PlayersViewController.m in Sources */,
 				38CBDDC11BEB4755008D5ADC /* ToolMenuModel.m in Sources */,
 				38BEAC221BEC95B800D567D7 /* TuWanHtmlViewController.m in Sources */,
 				38DC08251BF1CB880077E792 /* MusicListViewController.m in Sources */,
 				38CBDDB61BEB4755008D5ADC /* GiftModel.m in Sources */,
 				BC22DAA11D5F192C00056DD5 /* AllHeroViewModel.m in Sources */,
 				3886C0C11BD74B090014E661 /* BaseModel.m in Sources */,
+				BC1691951D65993200304ADF /* SkillInfoTableViewCell.m in Sources */,
 				382A8FEC1BEB06C700A1874C /* TuWanViewController.m in Sources */,
 				3886C0981BD748830014E661 /* main.m in Sources */,
 				38DC08221BF1C0820077E792 /* XiMaAlbumViewModel.m in Sources */,
 				38F219731BF3240400F11009 /* BestGroupCell.m in Sources */,
 				3804CE521BD758F10046C8C8 /* NSObject+Common.m in Sources */,
+				BC1691801D65942C00304ADF /* HeroDetailTableViewController.m in Sources */,
 				38CBDDBB1BEB4755008D5ADC /* HeroSkinModel.m in Sources */,
 				38CBDDB51BEB4755008D5ADC /* FreeHeroModel.m in Sources */,
 				BCC0137B1D62FDEC007762F7 /* HeroDetailViewController.m in Sources */,

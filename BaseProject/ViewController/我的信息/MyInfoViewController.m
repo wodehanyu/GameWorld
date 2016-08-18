@@ -7,7 +7,7 @@
 //
 
 #import "MyInfoViewController.h"
-
+#import "Factory.h"
 @interface MyInfoViewController ()
 
 @end
@@ -17,6 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor=[UIColor whiteColor];
+    [Factory addBackItemToVC:self];
+    UILabel* lable=[UILabel label];
+    lable.textAlignment=NSTextAlignmentCenter;
+    lable.font=[UIFont systemFontOfSize:20];
+    lable.textColor=[UIColor blackColor];
+    lable.text=@"功能内测中，敬请关注后期更新";
+    [self.view addSubview:lable];
+    [lable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(self.view.mas_centerY).mas_equalTo(0);
+        make.centerX.mas_equalTo(self.view.mas_centerX).mas_equalTo(0);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
