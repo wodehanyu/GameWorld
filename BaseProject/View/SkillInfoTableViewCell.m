@@ -62,7 +62,6 @@
     return _btnW;
 
 }
-
 -(UILabel*)name{
     if (!_name) {
         _name=[UILabel label];
@@ -71,6 +70,229 @@
         _name.textAlignment=NSTextAlignmentLeft;
     }
     return _name;
+}
+
+-(UILabel*)desc{
+    if (!_desc) {
+        _desc=[UILabel label];
+        _desc.font=[UIFont systemFontOfSize:14];
+        _desc.textColor=[UIColor blackColor];
+        _desc.textAlignment=NSTextAlignmentLeft;
+    }
+    return _desc;
+}
+
+-(UILabel*)coolDown{
+    if (!_coolDown) {
+        _coolDown=[UILabel label];
+        _coolDown.font=[UIFont systemFontOfSize:14];
+        _coolDown.textColor=[UIColor blackColor];
+        _coolDown.textAlignment=NSTextAlignmentLeft;
+    }
+    return _coolDown;
+}
+
+-(UILabel*)cost{
+    if (!_cost) {
+        _cost=[UILabel label];
+        _cost.font=[UIFont systemFontOfSize:14];
+        _cost.textColor=[UIColor blackColor];
+        _cost.textAlignment=NSTextAlignmentLeft;
+    }
+    return _cost;
+}
+
+-(UILabel*)range{
+    if (!_range) {
+        _range=[UILabel label];
+        _range.font=[UIFont systemFontOfSize:14];
+        _range.textColor=[UIColor blackColor];
+        _range.textAlignment=NSTextAlignmentLeft;
+    }
+    return _range;
+}
+
+
+-(UILabel*)effect{
+    if (!_effect) {
+        _effect=[UILabel label];
+        _effect.font=[UIFont systemFontOfSize:14];
+        _effect.textColor=[UIColor blackColor];
+        _effect.textAlignment=NSTextAlignmentLeft;
+    }
+    return _effect;
+}
+-(UIView*)view{
+    if (!_view) {
+        _view=[UIView new];
+        [_view addSubview:self.btnB];
+        [_view addSubview:self.btnE];
+        [_view addSubview:self.btnQ];
+        [_view addSubview:self.btnR];
+        [_view addSubview:self.btnW];
+        NSArray* btns=@[self.btnB,self.btnE,self.btnQ,self.btnR,self.btnW];
+        UILabel* titleLB=[UILabel label];
+        titleLB.font=[UIFont systemFontOfSize:16];
+        titleLB.textAlignment=NSTextAlignmentLeft;
+        titleLB.textColor=kRGBColor(0, 0, 98);
+        titleLB.text=@"技能说明";
+        [_view addSubview:titleLB];
+        [titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.mas_equalTo(0);
+        }];
+        int btnsCount=(int)btns.count;
+        for (int i=0; i<btnsCount; i++) {
+            if (i==0) {
+                [btns[i] mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.mas_equalTo(titleLB.mas_bottom).mas_equalTo(5);
+                    make.left.mas_equalTo(20);
+                    make.height.mas_equalTo(((UIButton *)btns[i]).mas_width).mas_equalTo(0);
+                    
+                }];
+                continue;
+            }else if(i==btnsCount-1){
+                [btns[i] mas_makeConstraints:^(MASConstraintMaker *make) {
+                     make.top.mas_equalTo(titleLB.mas_bottom).mas_equalTo(5);
+                    make.right.mas_equalTo(-20);
+                    make.height.mas_equalTo(((UIButton *)btns[0]).mas_height).mas_equalTo(0);
+                    make.width.mas_equalTo(((UIButton *)btns[0]).mas_width).mas_equalTo(0);
+                    make.left.mas_equalTo(((UIButton*)btns[i-1]).mas_right).mas_equalTo(20);
+                }];
+                continue;
+                
+            }
+            [btns[i] mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(titleLB.mas_bottom).mas_equalTo(5);
+                make.height.mas_equalTo(((UIButton *)btns[0]).mas_height).mas_equalTo(0);
+                make.width.mas_equalTo(((UIButton *)btns[0]).mas_width).mas_equalTo(0);
+                make.left.mas_equalTo(((UIButton*)btns[i-1]).mas_right).mas_equalTo(20);
+                
+            }];
+        }
+        [_view addSubview:self.name];
+        [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.btnB.mas_bottom).mas_equalTo(5);
+            make.left.right.mas_equalTo(0);
+            
+        }];
+        
+        [_view addSubview:self.desc];
+        UILabel* descLB=[UILabel label];
+        descLB.font=[UIFont systemFontOfSize:13];
+        descLB.textAlignment=NSTextAlignmentLeft;
+        descLB.textColor=kRGBColor(166, 167, 168);
+        descLB.text=@"描述";
+        [_view addSubview:descLB];
+        [descLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(self.name.mas_bottom).mas_equalTo(15);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(25);
+        }];
+        [self.desc mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(descLB.mas_top).mas_equalTo(0);
+            make.left.mas_equalTo(descLB.mas_right).mas_equalTo(10);
+            make.right.mas_equalTo(-10);
+            
+        }];
+        
+        
+        [_view addSubview:self.cost];
+        UILabel* costLB=[UILabel label];
+        costLB.font=[UIFont systemFontOfSize:13];
+        costLB.textAlignment=NSTextAlignmentLeft;
+        costLB.textColor=kRGBColor(166,167,168);
+        costLB.text=@"消耗";
+        [_view addSubview:costLB];
+        [costLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(self.desc.mas_bottom).mas_equalTo(15);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(25);
+        }];
+        [self.desc mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(costLB.mas_top).mas_equalTo(0);
+            make.left.mas_equalTo(costLB.mas_right).mas_equalTo(10);
+            make.right.mas_equalTo(-10);
+        }];
+        
+        
+        [_view addSubview:self.coolDown];
+        [_view addSubview:self.coolDown];
+        UILabel* coolDownLB=[UILabel label];
+        coolDownLB.font=[UIFont systemFontOfSize:13];
+        coolDownLB.textAlignment=NSTextAlignmentLeft;
+        coolDownLB.textColor=kRGBColor(166,167,168);
+        coolDownLB.text=@"冷却";
+        [_view addSubview:coolDownLB];
+        [coolDownLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(self.cost.mas_bottom).mas_equalTo(15);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(25);
+        }];
+        [self.coolDown mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(coolDownLB.mas_top).mas_equalTo(0);
+            make.left.mas_equalTo(coolDownLB.mas_right).mas_equalTo(10);
+            make.right.mas_equalTo(-10);
+            
+        }];
+
+        
+        [_view addSubview:self.range];
+        [_view addSubview:self.range];
+        UILabel* rangLB=[UILabel label];
+        rangLB.font=[UIFont systemFontOfSize:13];
+        rangLB.textAlignment=NSTextAlignmentLeft;
+        rangLB.textColor=kRGBColor(166,167,168);
+        rangLB.text=@"范围";
+        [_view addSubview:rangLB];
+        [rangLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(self.coolDown.mas_bottom).mas_equalTo(15);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(25);
+        }];
+        [self.range mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(rangLB.mas_top).mas_equalTo(0);
+            make.left.mas_equalTo(rangLB.mas_right).mas_equalTo(10);
+            make.right.mas_equalTo(-10);
+            
+        }];
+
+        
+        [_view addSubview:self.effect];
+        UILabel* effectLB=[UILabel label];
+        effectLB.font=[UIFont systemFontOfSize:13];
+        effectLB.textAlignment=NSTextAlignmentLeft;
+        effectLB.textColor=kRGBColor(166,167,168);
+        effectLB.text=@"效果";
+        [_view addSubview:effectLB];
+        [effectLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(self.range.mas_bottom).mas_equalTo(15);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(25);
+        }];
+        [self.effect mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(effectLB.mas_top).mas_equalTo(0);
+            make.left.mas_equalTo(effectLB.mas_right).mas_equalTo(10);
+            make.right.mas_equalTo(-10);
+            
+        }];
+    }
+    return _view;
+}
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self.contentView addSubview:self.view];
+        [self.view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+            
+        }];
+    }
+    return self;
+
 }
 - (void)awakeFromNib {
     // Initialization code

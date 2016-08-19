@@ -7,6 +7,9 @@
 //
 
 #import "HeroDetailTableViewController.h"
+#import "SkillInfoTableViewCell.h"
+#import "HeroDetailNomalTableViewCell.h"
+#import "HeroDetailViewModel.h"
 
 @interface HeroDetailTableViewController ()
 
@@ -38,7 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 7;
+    return 6;
 }
 
 /*

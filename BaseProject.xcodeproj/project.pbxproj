@@ -140,6 +140,7 @@
 		BC1EB5771D64005F00DF6783 /* ScrollDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1EB5761D64005F00DF6783 /* ScrollDisplayViewController.m */; };
 		BC22DA9E1D5F164300056DD5 /* AllHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */; };
 		BC22DAA11D5F192C00056DD5 /* AllHeroViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC22DAA01D5F192C00056DD5 /* AllHeroViewModel.m */; };
+		BC8C799D1D66E5EE004459C1 /* HeroDetailNomalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8C799C1D66E5EE004459C1 /* HeroDetailNomalTableViewCell.m */; };
 		BCC0136F1D62C114007762F7 /* HeroDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC0136E1D62C114007762F7 /* HeroDetailViewModel.m */; };
 		BCC013721D62F08E007762F7 /* HreoDetilTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC013711D62F08E007762F7 /* HreoDetilTitleViewModel.m */; };
 		BCC0137B1D62FDEC007762F7 /* HeroDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC0137A1D62FDEC007762F7 /* HeroDetailViewController.m */; };
@@ -392,6 +393,8 @@
 		BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllHeroCell.m; sourceTree = "<group>"; };
 		BC22DA9F1D5F192C00056DD5 /* AllHeroViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllHeroViewModel.h; sourceTree = "<group>"; };
 		BC22DAA01D5F192C00056DD5 /* AllHeroViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllHeroViewModel.m; sourceTree = "<group>"; };
+		BC8C799B1D66E5EE004459C1 /* HeroDetailNomalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroDetailNomalTableViewCell.h; sourceTree = "<group>"; };
+		BC8C799C1D66E5EE004459C1 /* HeroDetailNomalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroDetailNomalTableViewCell.m; sourceTree = "<group>"; };
 		BCC0136D1D62C114007762F7 /* HeroDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroDetailViewModel.h; sourceTree = "<group>"; };
 		BCC0136E1D62C114007762F7 /* HeroDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroDetailViewModel.m; sourceTree = "<group>"; };
 		BCC013701D62F08E007762F7 /* HreoDetilTitleViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HreoDetilTitleViewModel.h; sourceTree = "<group>"; };
@@ -962,6 +965,8 @@
 				BC22DA9D1D5F164300056DD5 /* AllHeroCell.m */,
 				BC1691931D65993200304ADF /* SkillInfoTableViewCell.h */,
 				BC1691941D65993200304ADF /* SkillInfoTableViewCell.m */,
+				BC8C799B1D66E5EE004459C1 /* HeroDetailNomalTableViewCell.h */,
+				BC8C799C1D66E5EE004459C1 /* HeroDetailNomalTableViewCell.m */,
 			);
 			name = "多玩";
 			sourceTree = "<group>";
@@ -1206,6 +1211,7 @@
 				38CBDDBD1BEB4755008D5ADC /* HeroWeekDataModel.m in Sources */,
 				BCC0136F1D62C114007762F7 /* HeroDetailViewModel.m in Sources */,
 				38F219791BF32F0600F11009 /* BestGroupDetailHeroCell.m in Sources */,
+				BC8C799D1D66E5EE004459C1 /* HeroDetailNomalTableViewCell.m in Sources */,
 				382306B71BF46FF90069E0FD /* SumAbilityDetailViewController.m in Sources */,
 				BC22DA9E1D5F164300056DD5 /* AllHeroCell.m in Sources */,
 				38F219761BF32EC800F11009 /* BestGroupDetailIntroCell.m in Sources */,
