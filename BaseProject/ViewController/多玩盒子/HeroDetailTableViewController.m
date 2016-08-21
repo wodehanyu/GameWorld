@@ -16,7 +16,12 @@
 @end
 
 @implementation HeroDetailTableViewController
-
+-(instancetype)initWithEnName:(NSString *)enName{
+    if (self=[super initWithStyle:UITableViewStylePlain]) {
+        _enName=enName;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -41,7 +46,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+<<<<<<< HEAD
     return 6;
+=======
+    return 0;
+>>>>>>> master
 }
 
 /*
