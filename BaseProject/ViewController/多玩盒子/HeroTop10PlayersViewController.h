@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HeroTop10PlayersViewController : UIViewController
-
+@property(nonatomic,strong) NSString * enName;
+-(instancetype)initWithEnName:(NSString *)enName;
 @end

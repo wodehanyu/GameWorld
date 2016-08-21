@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HeroDetailViewModel.h"
 @interface HeroCZTableViewController : UITableViewController
+@property(nonatomic,strong) NSString * enName;
+-(instancetype)initWithEnName:(NSString *)enName;
 
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HeroVideoTableViewController : UITableViewController
-
+@property(nonatomic,strong) NSString * enName;
+-(instancetype)initWithEnName:(NSString *)enName;
 @end

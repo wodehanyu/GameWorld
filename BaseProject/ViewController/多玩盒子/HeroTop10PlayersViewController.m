@@ -13,7 +13,12 @@
 @end
 
 @implementation HeroTop10PlayersViewController
-
+-(instancetype)initWithEnName:(NSString *)enName{
+    if (self=[super init]) {
+        _enName=enName;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

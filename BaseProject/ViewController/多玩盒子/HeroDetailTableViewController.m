@@ -13,7 +13,12 @@
 @end
 
 @implementation HeroDetailTableViewController
-
+-(instancetype)initWithEnName:(NSString *)enName{
+    if (self=[super initWithStyle:UITableViewStylePlain]) {
+        _enName=enName;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -38,7 +43,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 7;
+    return 0;
 }
 
 /*

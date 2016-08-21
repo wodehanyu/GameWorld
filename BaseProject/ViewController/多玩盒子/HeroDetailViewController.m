@@ -10,16 +10,113 @@
 #import "HreoDetilTitleViewModel.h"
 #import "TRImageView.h"
 #import "Factory.h"
+#import "ScrollDisplayViewController.h"
+#import "HeroCZTableViewController.h"
+#import "HeroDetailTableViewController.h"
+#import "HeroSoundTableViewController.h"
+#import "HeroVideoTableViewController.h"
+#import "HeroTop10PlayersViewController.h"
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define KMutiplier 0.16
 #define kTitleTinColor kRGBColor(244, 245, 246)
-@interface HeroDetailViewController ()
+@interface HeroDetailViewController ()<ScrollDisplayViewControllerDelegate>
 @property(nonatomic,strong)HreoDetilTitleViewModel* model;
 @property(nonatomic,strong)UIView* TitleView;
+@property(nonatomic,strong) ScrollDisplayViewController * scrollVC;
+@property(nonatomic,strong) UIView * TitlelistView;
+@property(nonatomic,strong) NSMutableArray* btns;
+@property(nonatomic,strong) UIView * lineView;
+@property(nonatomic,strong) UIButton * currentBtn;
 @end
 
 @implementation HeroDetailViewController
+-(NSMutableArray*)btns{
+    if (!_btns) {
+        _btns=[NSMutableArray new];
+    }
+    return _btns;
+}
+-(UIView*)lineView{
+    if (!_lineView) {
+        _lineView=[UIView new];
+        _lineView.backgroundColor=kRGBColor(56, 106, 198);
+        
+    }
+    return _lineView;
+}
+-(UIView*)TitlelistView{
+    if (!_TitlelistView) {
+        _TitlelistView=[UIView new];
+        NSArray* arr=@[@"资料",@"出装",@"视频",@"排行",@"配音"];
+        NSInteger arrCount=arr.count;
+        for (NSInteger i=0; i<arrCount; i++) {
+            UIButton* btn=[UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:arr[i] forState:UIControlStateNormal];
+            [btn setTitleColor:kRGBColor(89, 89, 89) forState:UIControlStateNormal];
+            [btn setTitleColor:self.lineView.backgroundColor forState:UIControlStateSelected];
+            if (i==0) {
+                _currentBtn=btn;
+                btn.selected=YES;
+            }
+            [btn bk_addEventHandler:^(UIButton* sender) {
+                if (_currentBtn !=sender) {
+                    _currentBtn.selected = NO;
+                    sender.selected=YES;
+                    _currentBtn=sender;
+                    [self.lineView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                        make.width.mas_equalTo(sender.mas_width).mas_equalTo(0);
+                        make.height.mas_equalTo(2);
+                        make.centerX.mas_equalTo(sender.mas_centerX).mas_equalTo(0);
+                        make.top.mas_equalTo(sender.mas_bottom).mas_equalTo(8);
+                    }];
+                    [_TitlelistView addSubview:btn];
+                    _scrollVC.currentPage=[_btns indexOfObject:sender];
+                }
+                
+            } forControlEvents:UIControlEventTouchUpInside];
+            [_TitlelistView addSubview:btn];
+            [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(25);
+                make.centerY.mas_equalTo(0);
+                if (i==0) {
+                    make.left.mas_equalTo(10);
+                }else if(i==arrCount-1){
+                    make.left.mas_equalTo(((UIButton*)_btns[i-1]).mas_right).mas_equalTo(10);
+                    make.width.mas_equalTo(((UIButton*)_btns[0]).mas_width).mas_equalTo(0);
+                    make.right.mas_equalTo(10);
+                }else{
+                    make.left.mas_equalTo(((UIButton*)_btns[i-1]).mas_right).mas_equalTo(10);
+                    make.width.mas_equalTo(((UIButton*)_btns[0]).mas_width).mas_equalTo(0);
+                }
+                
+            }];
+            [self.btns addObject:btn];
+            
+        }
+        [_TitlelistView addSubview:self.lineView];
+        [self.lineView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(_currentBtn.mas_width).mas_equalTo(0);
+            make.height.mas_equalTo(2);
+            make.centerX.mas_equalTo(_currentBtn.mas_centerX).mas_equalTo(0);
+            make.top.mas_equalTo(_currentBtn.mas_bottom).mas_equalTo(8);
+        }];
+
+    }
+    return _TitlelistView;
+}
+-(ScrollDisplayViewController*)scrollVC{
+    if (!_scrollVC) {
+        NSArray* vcs=@[
+        [[HeroDetailTableViewController alloc]initWithEnName:_enName],[[HeroCZTableViewController alloc]initWithEnName:_enName],[[HeroVideoTableViewController alloc]initWithEnName:_enName],[[HeroTop10PlayersViewController alloc]initWithEnName:_enName],[[HeroVideoTableViewController alloc]initWithEnName:_enName]
+                       ];
+        _scrollVC=[[ScrollDisplayViewController alloc]initWithControllers:vcs];
+        _scrollVC.autoCycle = NO;
+        _scrollVC.showPageControl=NO;
+        _scrollVC.delegate=self;
+    }
+    return _scrollVC;
+}
 -(HreoDetilTitleViewModel*)model{
     if (!_model) {
         _model=[[HreoDetilTitleViewModel alloc]initWithEnName:_enName];
@@ -174,6 +271,22 @@
         make.height.mas_equalTo(KMutiplier*kScreenHeight);
         
     }];
+    [self.view addSubview:self.TitlelistView];
+    [self.TitlelistView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.TitleView.mas_bottom).mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(44);
+        
+        
+    }];
+    
+    [self.view addSubview:self.scrollVC.view];
+    [self.scrollVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.TitlelistView.mas_bottom).mas_equalTo(0);
+        make.left.right.bottom.mas_equalTo(0);
+        
+        
+    }];
     
     
     
@@ -184,14 +297,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - ScrollDisplayViewControllerDelegate
+-(void)scrollDisplayViewController:(ScrollDisplayViewController *)scrollDisplayVC didSelectedIndex:(NSInteger)index{
+    self.currentBtn.selected=NO;
+    self.currentBtn=self.btns[index];
+    self.currentBtn.selected=YES;
+    [self.lineView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(self.currentBtn).mas_equalTo(0);
+        make.height.mas_equalTo(2);
+        make.centerX.mas_equalTo(self.currentBtn.mas_centerX).mas_equalTo(0);
+        make.top.mas_equalTo(self.currentBtn.mas_bottom).mas_equalTo(8);
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        
+    }];
+
 }
-*/
+-(void)scrollDisplayViewController:(ScrollDisplayViewController *)scrollDisplayVC currentIndex:(NSInteger)index{
 
+}
 @end
