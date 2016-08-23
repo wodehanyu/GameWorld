@@ -48,6 +48,28 @@
 -(UIView*)TitlelistView{
     if (!_TitlelistView) {
         _TitlelistView=[UIView new];
+        _TitlelistView.backgroundColor=kTitleTinColor;
+        UIView* topLineView=[UIView new];
+        topLineView.backgroundColor=[UIColor grayColor];
+        [_TitlelistView addSubview:topLineView];
+        [topLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.mas_equalTo(0);
+            make.height.mas_equalTo(1);
+            
+        }];
+
+        UIView* bottomLineView=[UIView new];
+        bottomLineView.backgroundColor=[UIColor grayColor];
+        [_TitlelistView addSubview:bottomLineView];
+        [bottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(1);
+            
+        }];
+        
+        
+        
+        
         NSArray* arr=@[@"资料",@"出装",@"视频",@"排行",@"配音"];
         NSInteger arrCount=arr.count;
         for (NSInteger i=0; i<arrCount; i++) {
@@ -237,6 +259,7 @@
         [self.model getDataFromNetCompleteHandle:^(NSError *error) {
             if (!error) {
                 [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                    self.title=self.model.name;
                     difficutyLB.text=[NSString stringWithFormat:@"难度%@",self.model.difficulty];
                     magicLB.text=[NSString stringWithFormat:@"法%@",self.model.magic];
                     priceLB.text=self.model.price;

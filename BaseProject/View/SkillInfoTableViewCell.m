@@ -68,6 +68,7 @@
         _name.font=[UIFont systemFontOfSize:14];
         _name.textColor=[UIColor blackColor];
         _name.textAlignment=NSTextAlignmentLeft;
+        [_name addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     }
     return _name;
 }
@@ -78,6 +79,7 @@
         _desc.font=[UIFont systemFontOfSize:14];
         _desc.textColor=[UIColor blackColor];
         _desc.textAlignment=NSTextAlignmentLeft;
+        [_desc addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     }
     return _desc;
 }
@@ -88,6 +90,7 @@
         _coolDown.font=[UIFont systemFontOfSize:14];
         _coolDown.textColor=[UIColor blackColor];
         _coolDown.textAlignment=NSTextAlignmentLeft;
+        [_coolDown addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     }
     return _coolDown;
 }
@@ -98,6 +101,7 @@
         _cost.font=[UIFont systemFontOfSize:14];
         _cost.textColor=[UIColor blackColor];
         _cost.textAlignment=NSTextAlignmentLeft;
+        [_cost addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     }
     return _cost;
 }
@@ -108,6 +112,7 @@
         _range.font=[UIFont systemFontOfSize:14];
         _range.textColor=[UIColor blackColor];
         _range.textAlignment=NSTextAlignmentLeft;
+        [_range addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     }
     return _range;
 }
@@ -119,6 +124,7 @@
         _effect.font=[UIFont systemFontOfSize:14];
         _effect.textColor=[UIColor blackColor];
         _effect.textAlignment=NSTextAlignmentLeft;
+        [_effect addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     }
     return _effect;
 }
@@ -139,40 +145,34 @@
         [_view addSubview:titleLB];
         [titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.mas_equalTo(0);
+            make.height.mas_equalTo(titleLB.bounds.size.height);
         }];
         int btnsCount=(int)btns.count;
         for (int i=0; i<btnsCount; i++) {
-            if (i==0) {
                 [btns[i] mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.top.mas_equalTo(titleLB.mas_bottom).mas_equalTo(5);
-                    make.left.mas_equalTo(20);
-                    make.height.mas_equalTo(((UIButton *)btns[i]).mas_width).mas_equalTo(0);
+                    if (i == 0) {
+                        make.left.mas_equalTo(20);
+                        make.height.mas_equalTo(((UIButton *)btns[0]).mas_width).mas_equalTo(0);
+                    }else if (i == btnsCount-1){
+                        make.right.mas_equalTo(-20);
+                        make.height.mas_equalTo(((UIButton *)btns[0]).mas_height).mas_equalTo(0);
+                        make.width.mas_equalTo(((UIButton *)btns[0]).mas_width).mas_equalTo(0);
+                        make.left.mas_equalTo(((UIButton*)btns[i-1]).mas_right).mas_equalTo(20);
+                    }else{
+                        make.height.mas_equalTo(((UIButton *)btns[0]).mas_height).mas_equalTo(0);
+                        make.width.mas_equalTo(((UIButton *)btns[0]).mas_width).mas_equalTo(0);
+                        make.left.mas_equalTo(((UIButton*)btns[i-1]).mas_right).mas_equalTo(20);
+                        
+                    }
                     
                 }];
-                continue;
-            }else if(i==btnsCount-1){
-                [btns[i] mas_makeConstraints:^(MASConstraintMaker *make) {
-                     make.top.mas_equalTo(titleLB.mas_bottom).mas_equalTo(5);
-                    make.right.mas_equalTo(-20);
-                    make.height.mas_equalTo(((UIButton *)btns[0]).mas_height).mas_equalTo(0);
-                    make.width.mas_equalTo(((UIButton *)btns[0]).mas_width).mas_equalTo(0);
-                    make.left.mas_equalTo(((UIButton*)btns[i-1]).mas_right).mas_equalTo(20);
-                }];
-                continue;
-                
             }
-            [btns[i] mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_equalTo(titleLB.mas_bottom).mas_equalTo(5);
-                make.height.mas_equalTo(((UIButton *)btns[0]).mas_height).mas_equalTo(0);
-                make.width.mas_equalTo(((UIButton *)btns[0]).mas_width).mas_equalTo(0);
-                make.left.mas_equalTo(((UIButton*)btns[i-1]).mas_right).mas_equalTo(20);
-                
-            }];
-        }
         [_view addSubview:self.name];
         [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.btnB.mas_bottom).mas_equalTo(5);
             make.left.right.mas_equalTo(0);
+            make.height.mas_equalTo(self.name.bounds.size.height);
             
         }];
         
@@ -193,6 +193,8 @@
             make.top.mas_equalTo(descLB.mas_top).mas_equalTo(0);
             make.left.mas_equalTo(descLB.mas_right).mas_equalTo(10);
             make.right.mas_equalTo(-10);
+            make.height.mas_equalTo(descLB.mas_height).mas_equalTo(0).priorityLow();
+            
             
         }];
         
@@ -210,14 +212,14 @@
             make.width.mas_equalTo(50);
             make.height.mas_equalTo(25);
         }];
-        [self.desc mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.cost mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(costLB.mas_top).mas_equalTo(0);
             make.left.mas_equalTo(costLB.mas_right).mas_equalTo(10);
             make.right.mas_equalTo(-10);
+            make.height.mas_equalTo(costLB.mas_height).mas_equalTo(0).priorityLow();
         }];
         
         
-        [_view addSubview:self.coolDown];
         [_view addSubview:self.coolDown];
         UILabel* coolDownLB=[UILabel label];
         coolDownLB.font=[UIFont systemFontOfSize:13];
@@ -235,6 +237,7 @@
             make.top.mas_equalTo(coolDownLB.mas_top).mas_equalTo(0);
             make.left.mas_equalTo(coolDownLB.mas_right).mas_equalTo(10);
             make.right.mas_equalTo(-10);
+            make.height.mas_equalTo(coolDownLB.mas_height).mas_equalTo(0).priorityLow();
             
         }];
 
@@ -257,6 +260,7 @@
             make.top.mas_equalTo(rangLB.mas_top).mas_equalTo(0);
             make.left.mas_equalTo(rangLB.mas_right).mas_equalTo(10);
             make.right.mas_equalTo(-10);
+            make.height.mas_equalTo(rangLB.mas_height).mas_equalTo(0).priorityLow();
             
         }];
 
@@ -278,20 +282,38 @@
             make.top.mas_equalTo(effectLB.mas_top).mas_equalTo(0);
             make.left.mas_equalTo(effectLB.mas_right).mas_equalTo(10);
             make.right.mas_equalTo(-10);
+            make.height.mas_equalTo(effectLB.mas_height).mas_equalTo(0).priorityLow();
+            
             
         }];
+        _view.tag=100;
     }
     return _view;
 }
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        [self.contentView addSubview:self.view];
+        [self addSubview:self.view];
         [self.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
             
         }];
     }
     return self;
+
+}
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    UILabel* lable=(UILabel*)object;
+    NSDictionary* attribute=@{NSFontAttributeName:lable.font};
+    CGSize lableSize=[lable.text boundingRectWithSize:self.contentView.bounds.size options:NSStringDrawingUsesLineFragmentOrigin attributes:attribute context:nil].size;
+    [lable mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(lableSize.height);
+        
+    }];
+
+}
+-(CGFloat)getCellHight{
+    UIView* view=[self viewWithTag:100];
+    return view.bounds.size.height;
 
 }
 - (void)awakeFromNib {

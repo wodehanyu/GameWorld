@@ -20,5 +20,5 @@
 @property(nonatomic,strong) UILabel * coolDown;
 @property(nonatomic,strong) UILabel * range;
 @property(nonatomic,strong) UILabel * effect;
-
+-(CGFloat)getCellHight;
 @end
