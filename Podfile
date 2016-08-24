@@ -25,6 +25,7 @@ pod 'RESideMenu'
 pod 'SWTableViewCell'
 pod 'MWPhotoBrowser'
 pod 'WMPageController'
+pod 'UITableView+FDTemplateLayoutCell'
 
 end
 

@@ -10,10 +10,11 @@
 #import "SkillInfoTableViewCell.h"
 #import "HeroDetailNomalTableViewCell.h"
 #import "HeroDetailViewModel.h"
-
+#import <UITableView+FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell.h>
 @interface HeroDetailTableViewController ()
 @property(nonatomic,strong)HeroDetailViewModel* model;
 @property(nonatomic,strong) UIButton * selectedButton;
+
 @end
 
 @implementation HeroDetailTableViewController
@@ -69,7 +70,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     if (indexPath.row==0) {
         SkillInfoTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"skillCell"];
         [cell.btnB setImageForState:UIControlStateNormal withURL:[self.model iconNameURLWithType:SkillTypeB] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
@@ -130,15 +131,11 @@
                 
             }
         } forControlEvents:UIControlEventTouchUpInside];
-        
-        
         return cell;
     }else {
         HeroDetailNomalTableViewCell* cell=[self.tableView dequeueReusableCellWithIdentifier:@"nomalCell"];
         if(indexPath.row == 1 || indexPath.row == 2){
-            
-            
-            
+        
         }
         return cell;
     
@@ -147,26 +144,89 @@
     
 }
 -(void)tableViewCellContent:(SkillInfoTableViewCell*)cell withType:(SkillType)type{
-    cell.desc.text=[self.model descWithType:type];
-    cell.name.text=[self.model nameWithType:type];
-    cell.cost.text=[self.model costWithType:type];
-    cell.coolDown.text=[self.model coolDownWithType:type];
-    cell.range.text=[self.model rangeWithType:type];
-    cell.effect.text=[self.model effectWithType:type];
+    
+    
+    cell.desc.text=[[self.model descWithType:type] isEqualToString:@""]? @"无" : [self.model descWithType:type];
+    cell.name.text=[[self.model nameWithType:type] isEqualToString:@""]? @"无" : [self.model nameWithType:type];
+    cell.cost.text=[[self.model costWithType:type] isEqualToString:@""]? @"无" : [self.model costWithType:type];
+    cell.coolDown.text=[[self.model coolDownWithType:type] isEqualToString:@""]? @"无" : [self.model coolDownWithType:type];
+    cell.range.text=[[self.model rangeWithType:type] isEqualToString:@""]? @"无" : [self.model rangeWithType:type];
+    cell.effect.text=[[self.model effectWithType:type] isEqualToString:@""]? @"无" : [self.model effectWithType:type];
 
 }
 
 #pragma mark - UITableViewDelegate
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.row == 0) {
-//      //  SkillInfoTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"skillCell"];
-//        
-//        return 100;
-//    }else{
-//        return 100;
-//    }
-//    
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row==0) {
+        return [tableView fd_heightForCellWithIdentifier:@"skillCell" cacheByIndexPath:indexPath configuration:^(SkillInfoTableViewCell* cell) {
+            [cell.btnB setImageForState:UIControlStateNormal withURL:[self.model iconNameURLWithType:SkillTypeB] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+            [self tableViewCellContent:cell withType:SkillTypeB];
+            cell.btnB.selected=YES;
+            _selectedButton=cell.btnB;
+            [cell.btnB bk_addEventHandler:^(UIButton* sender) {
+                if (!sender.selected) {
+                    _selectedButton.selected=NO;
+                    _selectedButton=sender;
+                    _selectedButton.selected=YES;
+                    [self tableViewCellContent:cell withType:SkillTypeB];
+                    
+                }
+            } forControlEvents:UIControlEventTouchUpInside];
+            
+            [cell.btnQ setImageForState:UIControlStateNormal withURL:[self.model iconNameURLWithType:SkillTypeQ] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+            [cell.btnQ bk_addEventHandler:^(UIButton* sender) {
+                if (!sender.selected) {
+                    _selectedButton.selected=NO;
+                    _selectedButton=sender;
+                    _selectedButton.selected=YES;
+                    [self tableViewCellContent:cell withType:SkillTypeQ];
+                    
+                }
+            } forControlEvents:UIControlEventTouchUpInside];
+            
+            [cell.btnR setImageForState:UIControlStateNormal withURL:[self.model iconNameURLWithType:SkillTypeR] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+            [cell.btnR bk_addEventHandler:^(UIButton* sender) {
+                if (!sender.selected) {
+                    _selectedButton.selected=NO;
+                    _selectedButton=sender;
+                    _selectedButton.selected=YES;
+                    [self tableViewCellContent:cell withType:SkillTypeR];
+                    
+                }
+            } forControlEvents:UIControlEventTouchUpInside];
+            
+            [cell.btnW setImageForState:UIControlStateNormal withURL:[self.model iconNameURLWithType:SkillTypeW] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+            [cell.btnW bk_addEventHandler:^(UIButton* sender) {
+                if (!sender.selected) {
+                    _selectedButton.selected=NO;
+                    _selectedButton=sender;
+                    _selectedButton.selected=YES;
+                    [self tableViewCellContent:cell withType:SkillTypeW];
+                    
+                }
+            } forControlEvents:UIControlEventTouchUpInside];
+            
+            
+            [cell.btnE setImageForState:UIControlStateNormal withURL:[self.model iconNameURLWithType:SkillTypeE] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+            [cell.btnE bk_addEventHandler:^(UIButton* sender) {
+                if (!sender.selected) {
+                    _selectedButton.selected=NO;
+                    _selectedButton=sender;
+                    _selectedButton.selected=YES;
+                    [self tableViewCellContent:cell withType:SkillTypeE];
+                    
+                }
+            } forControlEvents:UIControlEventTouchUpInside];
+
+            
+}];
+    }else{
+        return [tableView fd_heightForCellWithIdentifier:@"nomalCell" cacheByIndexPath:indexPath configuration:^(HeroDetailNomalTableViewCell* cell){
+        
+        }];
+    }
+
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

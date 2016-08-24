@@ -144,7 +144,7 @@
         titleLB.text=@"技能说明";
         [_view addSubview:titleLB];
         [titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.mas_equalTo(0);
+            make.left.right.top.mas_equalTo(10);
             make.height.mas_equalTo(titleLB.bounds.size.height);
         }];
         int btnsCount=(int)btns.count;
@@ -171,7 +171,8 @@
         [_view addSubview:self.name];
         [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.btnB.mas_bottom).mas_equalTo(5);
-            make.left.right.mas_equalTo(0);
+            make.left.mas_equalTo(10);
+            make.right.mas_equalTo(0);
             make.height.mas_equalTo(self.name.bounds.size.height);
             
         }];
@@ -184,7 +185,7 @@
         descLB.text=@"描述";
         [_view addSubview:descLB];
         [descLB mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
+            make.left.mas_equalTo(10);
             make.top.mas_equalTo(self.name.mas_bottom).mas_equalTo(15);
             make.width.mas_equalTo(50);
             make.height.mas_equalTo(25);
@@ -207,7 +208,7 @@
         costLB.text=@"消耗";
         [_view addSubview:costLB];
         [costLB mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
+            make.left.mas_equalTo(10);
             make.top.mas_equalTo(self.desc.mas_bottom).mas_equalTo(15);
             make.width.mas_equalTo(50);
             make.height.mas_equalTo(25);
@@ -228,7 +229,7 @@
         coolDownLB.text=@"冷却";
         [_view addSubview:coolDownLB];
         [coolDownLB mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
+            make.left.mas_equalTo(10);
             make.top.mas_equalTo(self.cost.mas_bottom).mas_equalTo(15);
             make.width.mas_equalTo(50);
             make.height.mas_equalTo(25);
@@ -251,7 +252,7 @@
         rangLB.text=@"范围";
         [_view addSubview:rangLB];
         [rangLB mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
+            make.left.mas_equalTo(10);
             make.top.mas_equalTo(self.coolDown.mas_bottom).mas_equalTo(15);
             make.width.mas_equalTo(50);
             make.height.mas_equalTo(25);
@@ -273,7 +274,7 @@
         effectLB.text=@"效果";
         [_view addSubview:effectLB];
         [effectLB mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
+            make.left.mas_equalTo(10);
             make.top.mas_equalTo(self.range.mas_bottom).mas_equalTo(15);
             make.width.mas_equalTo(50);
             make.height.mas_equalTo(25);
@@ -283,7 +284,6 @@
             make.left.mas_equalTo(effectLB.mas_right).mas_equalTo(10);
             make.right.mas_equalTo(-10);
             make.height.mas_equalTo(effectLB.mas_height).mas_equalTo(0).priorityLow();
-            
             
         }];
         _view.tag=100;
@@ -303,12 +303,17 @@
 }
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     UILabel* lable=(UILabel*)object;
+    //lable.preferredMaxLayoutWidth=lable.frame.size.width;
+    lable.numberOfLines=0;
     NSDictionary* attribute=@{NSFontAttributeName:lable.font};
     CGSize lableSize=[lable.text boundingRectWithSize:self.contentView.bounds.size options:NSStringDrawingUsesLineFragmentOrigin attributes:attribute context:nil].size;
     [lable mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(lableSize.height);
+#warning 在此打印了 距离代码
+        NSLog(@"%f",lableSize.height);
         
     }];
+    
 
 }
 -(CGFloat)getCellHight{
